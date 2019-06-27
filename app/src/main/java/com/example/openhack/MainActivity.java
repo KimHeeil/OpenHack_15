@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +15,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -22,6 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private TextView mTextMessage;
+    GoogleMap googleMap;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -54,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         TabHost tabHost1 = (TabHost) findViewById(R.id.tabHost1);
         tabHost1.setup();
 
@@ -83,16 +86,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     @Override
-    public void onMapReady(final GoogleMap map) {
-        //double latitude = location.getLatitude();
-        //double longitude = location.getLongitude();
+    public void onMapReady(GoogleMap googleMap) {
+
         LatLng SEOUL = new LatLng(35.95, 126.97);
-        LatLng SEOUL1 = new LatLng(35.950400, 126.975391);
-
-        LatLng SEOUL2 = new LatLng(35.950800, 126.975091);
-
-        LatLng SEOUL3 = new LatLng(35.950400, 126.975891);
-
+        LatLng SEOUL1 = new LatLng(35.950400, 126.976491);
+        LatLng SEOUL2 = new LatLng(35.951200, 126.975091);
+        LatLng SEOUL3 = new LatLng(35.949600, 126.974291);
+/*
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(SEOUL);
         markerOptions.title("빠리바게트");
@@ -116,12 +116,56 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         markerOptions3.title("피시방 대타");
         markerOptions3.snippet("28일 하루 야간 대타구해요.");
         map.addMarker(markerOptions3);
+*/
+        this.googleMap = googleMap;
+        this.googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
+        this.googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
-
-        map.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-        map.animateCamera(CameraUpdateFactory.zoomTo(15));
+        onAddMarker(SEOUL,"빠리바게트", "대타구해요!!");
+        onAddMarker(SEOUL1,"베스킨 라빈스","3일 급구");
+        onAddMarker(SEOUL2,"사무실 이전", "3시간 구합니다.");
+        onAddMarker(SEOUL3,"피시방 대타", "28일 하루 야간 대타구해요");
     }
+    public void onAddMarker(LatLng lat, String S, String Snip){
+        LatLng position = lat;
+        //나의위치 마커
+        MarkerOptions mymarker = new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(200f))  //마커색상지정
+                .title(S)
+                .snippet(Snip)
+                .position(position);   //마커위치
 
+        //마커추가
+        this.googleMap.addMarker(mymarker);
+
+        //정보창 클릭 리스너
+        googleMap.setOnInfoWindowClickListener(infoWindowClickListener);
+
+        //마커 클릭 리스너
+        this.googleMap.setOnMarkerClickListener(markerClickListener);
+    }
+    //정보창 클릭 리스너
+    GoogleMap.OnInfoWindowClickListener infoWindowClickListener = new GoogleMap.OnInfoWindowClickListener() {
+        @Override
+        public void onInfoWindowClick(Marker marker) {
+            String markerId = marker.getId();
+            Toast.makeText(MainActivity.this, "정보창 클릭 Marker ID : "+markerId, Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    //마커 클릭 리스너
+    GoogleMap.OnMarkerClickListener markerClickListener = new GoogleMap.OnMarkerClickListener() {
+        @Override
+        public boolean onMarkerClick(Marker marker) {
+            String markerId = marker.getId();
+            //선택한 타겟위치
+            LatLng location = marker.getPosition();
+            Toast.makeText(MainActivity.this, "마커 클릭 Marker ID : "+markerId+"("+location.latitude+" "+location.longitude+")", Toast.LENGTH_SHORT).show();
+
+            return false;
+        }
+    };
 
 
     }
