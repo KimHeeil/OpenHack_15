@@ -43,7 +43,7 @@ public class scrapPage extends AppCompatActivity {
             return false;
         }
     };
-  ListView listView;
+    ListView listView;
     list_ItemAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,8 @@ public class scrapPage extends AppCompatActivity {
         setContentView(R.layout.activity_scrap_page);
 
         listView =  findViewById(R.id.List_view);
-
         adapter = new list_ItemAdapter();
+
         listView =  findViewById(R.id.List_view);
         for(int i=0; i<10; i++) {
             TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
