@@ -27,15 +27,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private TextView mTextMessage;
+    private TextView mTextMessage;//bottom navigation 관련 변수
 
     private list_ItemAdapter adapter; //리스트 뷰 관련 변수
     private ListView listView; //리스트 뷰 관련 변수
 //아래쪽에 선택하면 연결해주는 부분
 
     GoogleMap googleMap;
-
-
+    //bottom navigation 연결 부분입니다.///////////////////
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -59,8 +58,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             return false;
         }
     };
-
-
+    ///////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,8 +156,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         map.addMarker(markerOptions3);
 
 
-        map.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-        map.animateCamera(CameraUpdateFactory.zoomTo(15));
+
 =======
 */
         this.googleMap = googleMap;
@@ -171,6 +168,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         onAddMarker(SEOUL1,"베스킨 라빈스","3일 급구");
         onAddMarker(SEOUL2,"사무실 이전", "3시간 구합니다.");
         onAddMarker(SEOUL3,"피시방 대타", "28일 하루 야간 대타구해요");
+        this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
+        this.googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
     }
     public void onAddMarker(LatLng lat, String S, String Snip){
         LatLng position = lat;
