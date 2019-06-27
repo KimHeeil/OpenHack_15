@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.openhack">
 
+
+
     <application
         tools:replace="theme, icon, label"
         android:allowBackup="true"
