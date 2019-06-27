@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     startActivity(intent2);
                     break;
                 case R.id.menuitem_bottombar_right:
-                    Intent intent3 = new Intent(MainActivity.this, listPage.class);
+                    Intent intent3 = new Intent(MainActivity.this, registerPage.class);
                     startActivity(intent3);
                     break;
             }
@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         FragmentManager fragmentManager = getFragmentManager();
         MapFragment mapFragment = (MapFragment) fragmentManager
@@ -91,8 +89,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     }
-    //Tab의 선택변화를 인지하는 Listener 객체 생성
-    //(Button의 onClickListner 처럼 생각하시면 됩니다.)
 
     @Override
     public void onMapReady(final GoogleMap map) {

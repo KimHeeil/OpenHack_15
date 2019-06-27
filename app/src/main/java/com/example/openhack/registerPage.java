@@ -6,45 +6,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.os.Handler;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class registerPage extends AppCompatActivity {
     private TextView mTextMessage;
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.menuitem_bottombar_left:
-                    Intent intent = new Intent(registerPage.this, scrapPage.class);
-                    startActivity(intent);
-
-                    break;
-
-                case R.id.menuitem_bottombar_search:
-                    Intent intent2 = new Intent(registerPage.this, registerPage.class);
-                    startActivity(intent2);
-
-                    break;
-                case R.id.menuitem_bottombar_right:
-                    Intent intent3 = new Intent(registerPage.this, listPage.class);
-                    startActivity(intent3);
-
-                    break;
-            }
-            return false;
-        }
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        mTextMessage = findViewById(R.id.message);
-        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        Button nextButton = findViewById(R.id.button3);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),registerPage2.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

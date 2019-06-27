@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -71,6 +73,12 @@ public class listPage extends AppCompatActivity {
             adapter.addItem(dto);
          }
             listView.setAdapter(adapter);
+
+
+    }
+    public void btnClick(View view)
+    {
+        Toast.makeText(getApplicationContext(),"스크랩 되었습니다.",Toast.LENGTH_SHORT).show();
     }
 /*
     private void setData() {
