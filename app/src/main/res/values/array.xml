@@ -2,7 +2,7 @@
 
 <resources>
     <integer-array name="resId">
-        <item>@drawable/test</item>
+        <item>@drawable/icontest</item>
 
     </integer-array>
 

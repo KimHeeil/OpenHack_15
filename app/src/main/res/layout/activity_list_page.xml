@@ -12,12 +12,10 @@
             android:layout_width="345dp"
            android:layout_height="match_parent"
            android:layout_gravity="center"
-           android:dividerHeight="5dp">
+           android:dividerHeight="5dp"
+           >
+
 
        </ListView>
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="8dip"
-        android:background="@drawable/drop_shadow" >
-    </View>
+
     </LinearLayout>
