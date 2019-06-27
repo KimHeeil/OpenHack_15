@@ -41,20 +41,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menuitem_bottombar_left:
-                    Intent intent = new Intent(MainActivity.this, registerPage.class);
+                    Intent intent = new Intent(MainActivity.this, scrapPage.class);
                     startActivity(intent);
-                    finish();
+
                     break;
 
                 case R.id.menuitem_bottombar_search:
                     Intent intent2 = new Intent(MainActivity.this, registerPage.class);
                     startActivity(intent2);
-                    finish();
+
                     break;
                 case R.id.menuitem_bottombar_right:
                     Intent intent3 = new Intent(MainActivity.this, listPage.class);
                     startActivity(intent3);
-                    finish();
+
                     break;
             }
             return false;

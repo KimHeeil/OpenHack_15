@@ -23,24 +23,24 @@ public class listPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_page);
 
-            listView = (ListView) findViewById(R.id.List_view);
+        listView = (ListView) findViewById(R.id.List_view);
 
-            //데이터 초기화
+        //데이터 초기화
         setContentView(R.layout.activity_list_page);
 
         adapter = new list_ItemAdapter();
         listView = (ListView) findViewById(R.id.List_view);
-for(int i=0; i<5; i++) {
-    TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
-    list_Item dto = new list_Item();
-    dto.setProfileImage(arrResId.getResourceId(0, 0));
-    dto.setStoreName("test");
-    dto.setPayPerHour("test11");
-    dto.setWriteTime("test123");
-    adapter.addItem(dto);
-}
-        listView.setAdapter(adapter);
-        }
+        for(int i=0; i<10; i++) {
+            TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
+            list_Item dto = new list_Item();
+            dto.setProfileImage(arrResId.getResourceId(0, 0));
+            dto.setStoreName("test");
+            dto.setPayPerHour("test11");
+            dto.setWriteTime("test123");
+            adapter.addItem(dto);
+         }
+            listView.setAdapter(adapter);
+    }
 /*
     private void setData() {
         TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
