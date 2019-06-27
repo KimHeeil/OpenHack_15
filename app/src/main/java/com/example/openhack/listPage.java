@@ -1,10 +1,15 @@
 package com.example.openhack;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +22,32 @@ public class listPage extends AppCompatActivity {
     private list_ItemAdapter adapter;
     private ListView listView;
 
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menuitem_bottombar_left:
+                    Intent intent = new Intent(listPage.this, scrapPage.class);
+                    startActivity(intent);
+
+                    break;
+
+                case R.id.menuitem_bottombar_search:
+                    Intent intent2 = new Intent(listPage.this, registerPage.class);
+                    startActivity(intent2);
+
+                    break;
+                case R.id.menuitem_bottombar_right:
+                    Intent intent3 = new Intent(listPage.this, listPage.class);
+                    startActivity(intent3);
+
+                    break;
+            }
+            return false;
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

@@ -27,13 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
-
-
-
-
     private TextView mTextMessage;
-
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -43,18 +37,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 case R.id.menuitem_bottombar_left:
                     Intent intent = new Intent(MainActivity.this, scrapPage.class);
                     startActivity(intent);
-
                     break;
 
                 case R.id.menuitem_bottombar_search:
                     Intent intent2 = new Intent(MainActivity.this, registerPage.class);
                     startActivity(intent2);
-
                     break;
                 case R.id.menuitem_bottombar_right:
                     Intent intent3 = new Intent(MainActivity.this, listPage.class);
                     startActivity(intent3);
-
                     break;
             }
             return false;
@@ -102,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
     //Tab의 선택변화를 인지하는 Listener 객체 생성
     //(Button의 onClickListner 처럼 생각하시면 됩니다.)
-    
+
     @Override
     public void onMapReady(final GoogleMap map) {
         //double latitude = location.getLatitude();
