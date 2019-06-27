@@ -1,8 +1,5 @@
 package com.example.openhack;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -10,10 +7,10 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class scrapPage extends AppCompatActivity {
 
@@ -30,12 +27,12 @@ public class scrapPage extends AppCompatActivity {
                     break;
 
                 case R.id.menuitem_bottombar_search:
-                    Intent intent2 = new Intent(scrapPage.this, registerPage.class);
+                    Intent intent2 = new Intent(scrapPage.this, jobDetailPage.class);
                     startActivity(intent2);
 
                     break;
                 case R.id.menuitem_bottombar_right:
-                    Intent intent3 = new Intent(scrapPage.this, listPage.class);
+                    Intent intent3 = new Intent(scrapPage.this, registerPage.class);
                     startActivity(intent3);
 
                     break;

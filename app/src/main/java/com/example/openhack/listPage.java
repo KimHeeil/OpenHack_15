@@ -35,11 +35,11 @@ public class listPage extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case R.id.menuitem_bottombar_search:
-                    Intent intent2 = new Intent(listPage.this, registerPage.class);
+                    Intent intent2 = new Intent(listPage.this, jobDetailPage.class);
                     startActivity(intent2);
                     break;
                 case R.id.menuitem_bottombar_right:
-                    Intent intent3 = new Intent(listPage.this, listPage.class);
+                    Intent intent3 = new Intent(listPage.this, registerPage.class);
                     startActivity(intent3);
                     break;
             }

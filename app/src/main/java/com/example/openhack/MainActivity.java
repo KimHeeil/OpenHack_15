@@ -24,18 +24,20 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private TextView mTextMessage;
+    FloatingActionButton floatingActionButton1;
 
     GoogleMap googleMap;
 
     private list_ItemAdapter adapter; //리스트 뷰 관련 변수
     private ListView listView; //리스트 뷰 관련 변수
-//아래쪽에 선택하면 연결해주는 부분
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    //아래쪽에 선택하면 연결해주는 부분
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
