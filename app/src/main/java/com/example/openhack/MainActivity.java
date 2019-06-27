@@ -41,14 +41,21 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menuitem_bottombar_left:
-                    mTextMessage.setText("list");
-                    return true;
+                    Intent intent = new Intent(MainActivity.this, registerPage.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+
                 case R.id.menuitem_bottombar_search:
-                    mTextMessage.setText("search");
-                    return true;
+                    Intent intent2 = new Intent(MainActivity.this, registerPage.class);
+                    startActivity(intent2);
+                    finish();
+                    break;
                 case R.id.menuitem_bottombar_right:
-                    mTextMessage.setText("write");
-                    return true;
+                    Intent intent3 = new Intent(MainActivity.this, listPage.class);
+                    startActivity(intent3);
+                    finish();
+                    break;
             }
             return false;
         }
@@ -119,23 +126,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Intent intent = new Intent(getApplicationContext(), registerPage.class);
                 startActivity(intent);
             }
-
         });*/
+
+
     }
-
     //Tab의 선택변화를 인지하는 Listener 객체 생성
-
     //(Button의 onClickListner 처럼 생각하시면 됩니다.)
 
     TabListener listener = new TabListener() {
 
-
         //Tab의 선택이 벗어날 때 호출
-
         //첫번째 파라미터 : 선택에서 벗어나는 Tab 객체
-
         //두번째 파라미터 : Tab에 해당하는 View를 Fragment로 만들때 사용하는 트랜젝션.(여기서는 사용X)
-
         @Override
 
         public void onTabUnselected(Tab tab, FragmentTransaction ft) {
@@ -145,56 +147,28 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }
 
-
         //Tab이 선택될 때 호출
-
         //첫번째 파라미터 : 선택된 Tab 객체
-
         //두번째 파라미터 : Tab에 해당하는 View를 Fragment로 만들때 사용하는 트랜젝션.(여기서는 사용X)
-
         @Override
 
         public void onTabSelected(Tab tab, FragmentTransaction ft) {
-
-            // TODO Auto-generated method stub
-
-
             //선택된 Tab객체의 위치값(왼족 처음부터 0,1,2....순으로 됨)
-
             int position = tab.getPosition();
 
-
             switch (position) {
-
                 case 0: //가장 왼쪽 Tab 선택(Analog)
-
-
                     //MainActivity가 보여 줄 View를
-
                     //res폴더>>layout폴더>>layout_tab_0.xml 로 설정
-
                     setContentView(R.layout.layout_tab_0);
-
                     break;
-
-
                 case 1: //두번째 Tab 선택(Digital)
-
-
                     //MainActivity가 보여 줄 View를
-
                     //res폴더>>layout폴더>>layout_tab_1.xml 로 설정
-
                     setContentView(R.layout.layout_tab_1);
-
                     break;
-
-
             }
-
-
         }
-
 
         //Tab이 재 선택될 때 호출
 
@@ -215,8 +189,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onMapReady(final GoogleMap map) {
-
-
         //double latitude = location.getLatitude();
         //double longitude = location.getLongitude();
         LatLng SEOUL = new LatLng(35.95, 126.97);

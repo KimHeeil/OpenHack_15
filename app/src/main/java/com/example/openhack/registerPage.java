@@ -1,8 +1,8 @@
 package com.example.openhack;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
 
 public class registerPage extends AppCompatActivity {
 
