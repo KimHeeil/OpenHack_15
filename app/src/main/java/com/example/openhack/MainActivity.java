@@ -1,15 +1,17 @@
 package com.example.openhack;
 
-
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.ActionBar.TabListener;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,9 +25,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-//import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity  implements OnMapReadyCallback {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
 
     Location location;
@@ -52,12 +53,13 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
             return false;
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        actionBar = getActionBar();
+      /*  actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         Tab tab = null;
         tab = actionBar.newTab();
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
 
         //두번째 Tab 객체 생성 및 ActionBar에 추가하기
 
-        tab= actionBar.newTab();//ActionBar에 붇는 Tab객체 생성
+        tab = actionBar.newTab();//ActionBar에 붇는 Tab객체 생성
 
         tab.setText("게시글로 보기");   //Tab에 보여지는 글씨
 
@@ -77,8 +79,7 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
 
         //ActionBar에 Tab 추가
 
-        actionBar.addTab(tab);
-
+        actionBar.addTab(tab);*/
         //액션바 설정하기//
         //액션바 타이틀 변경하기
         getSupportActionBar().setTitle("ACTIONBAR");
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
         //hideActionBar();
 
         FragmentManager fragmentManager = getFragmentManager();
-        MapFragment mapFragment = (MapFragment)fragmentManager
+        MapFragment mapFragment = (MapFragment) fragmentManager
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -99,14 +100,34 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
+      /*  Button button = findViewById(R.id.button1);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), listPage.class);
+                startActivity(intent);
+            }
+
+        });
+
+        Button button2 = findViewById(R.id.button3);
+        button2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), registerPage.class);
+                startActivity(intent);
+            }
+
+        });*/
     }
 
     //Tab의 선택변화를 인지하는 Listener 객체 생성
 
     //(Button의 onClickListner 처럼 생각하시면 됩니다.)
 
-    TabListener listener= new TabListener() {
-
+    TabListener listener = new TabListener() {
 
 
         //Tab의 선택이 벗어날 때 호출
@@ -122,9 +143,7 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
             // TODO Auto-generated method stub
 
 
-
         }
-
 
 
         //Tab이 선택될 때 호출
@@ -140,17 +159,14 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
             // TODO Auto-generated method stub
 
 
-
             //선택된 Tab객체의 위치값(왼족 처음부터 0,1,2....순으로 됨)
 
             int position = tab.getPosition();
 
 
-
-            switch( position ){
+            switch (position) {
 
                 case 0: //가장 왼쪽 Tab 선택(Analog)
-
 
 
                     //MainActivity가 보여 줄 View를
@@ -162,9 +178,7 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
                     break;
 
 
-
                 case 1: //두번째 Tab 선택(Digital)
-
 
 
                     //MainActivity가 보여 줄 View를
@@ -179,11 +193,7 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
             }
 
 
-
-
-
         }
-
 
 
         //Tab이 재 선택될 때 호출
@@ -197,7 +207,6 @@ public class MainActivity extends AppCompatActivity  implements OnMapReadyCallba
         public void onTabReselected(Tab tab, FragmentTransaction ft) {
 
             // TODO Auto-generated method stub
-
 
 
         }

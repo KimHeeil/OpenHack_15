@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
 
+    <android.support.design.widget.Ta
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,11 +19,9 @@
 
     <fragment
         android:id="@+id/map"
+        class="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        class="com.google.android.gms.maps.MapFragment" />
-
-
+        android:layout_height="match_parent" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,4 +36,27 @@
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottomebar_menu" />
 
+
+    <!--
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
