@@ -58,9 +58,6 @@ public class listPage extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.List_view);
 
-        //데이터 초기화
-        setContentView(R.layout.activity_list_page);
-
         adapter = new list_ItemAdapter();
         listView = (ListView) findViewById(R.id.List_view);
         for(int i=0; i<10; i++) {

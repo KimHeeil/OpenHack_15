@@ -18,7 +18,6 @@ public class list_ItemAdapter extends BaseAdapter{
         return listCustom.size();
     }
 
-
     @Override
     public Object getItem(int position) {
         return listCustom.get(position);

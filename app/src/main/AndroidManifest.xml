@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="theme, icon, label">
-        <activity android:name=".registerPage3"></activity>
+        <activity android:name=".jobDetailPage"></activity>
+        <activity android:name=".registerPage3" />
         <activity android:name=".registerPage2" />
         <activity android:name=".scrapPage" />
         <activity android:name=".registerPage" />
