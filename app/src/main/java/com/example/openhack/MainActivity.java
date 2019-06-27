@@ -2,8 +2,12 @@ package com.example.openhack;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,9 +29,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private TextView mTextMessage;
+
     GoogleMap googleMap;
 
-
+    private list_ItemAdapter adapter; //리스트 뷰 관련 변수
+    private ListView listView; //리스트 뷰 관련 변수
+//아래쪽에 선택하면 연결해주는 부분
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -40,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     break;
 
                 case R.id.menuitem_bottombar_search:
-                    Intent intent2 = new Intent(MainActivity.this, registerPage.class);
+                    Intent intent2 = new Intent(MainActivity.this, jobDetailPage.class);
                     startActivity(intent2);
                     break;
                 case R.id.menuitem_bottombar_right:
@@ -75,14 +82,46 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         MapFragment mapFragment = (MapFragment) fragmentManager
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        /////////이부분이 bottomNavigation입니다.
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+/////////////////////////////////이부분은 리스뷰 실행부분입니다.///-Jaemin/
+        adapter = new list_ItemAdapter();
+        listView = (ListView) findViewById(R.id.List_view);
 
 
+        for(int i=0; i<10; i++) {
+            TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
+            list_Item dto = new list_Item();
+            dto.setProfileImage(arrResId.getResourceId(0, 0));
+            dto.setStoreName("test");
+            dto.setPayPerHour("test11");
+            dto.setWriteTime("test123");
+            adapter.addItem(dto);
+        }
+        listView.setAdapter(adapter);
+
+
+/////////////////////////////////이부분은 리스뷰 실행부분입니다.///-Jaemin/
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this ,"test",Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(MainActivity.this,jobDetailPage.class);
+                startActivity(intent);
+
+
+            }
+        });
     }
 
 
+    public void btnClick(View view)
+    {
+        Toast.makeText(getApplicationContext(),"스크랩 되었습니다.",Toast.LENGTH_SHORT).show();
+    }
 
 
     @Override
@@ -116,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         markerOptions3.title("피시방 대타");
         markerOptions3.snippet("28일 하루 야간 대타구해요.");
         map.addMarker(markerOptions3);
+
 */
         this.googleMap = googleMap;
         this.googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -126,6 +166,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         onAddMarker(SEOUL1,"베스킨 라빈스","3일 급구");
         onAddMarker(SEOUL2,"사무실 이전", "3시간 구합니다.");
         onAddMarker(SEOUL3,"피시방 대타", "28일 하루 야간 대타구해요");
+
+        this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
+        this.googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
     }
     public void onAddMarker(LatLng lat, String S, String Snip){
         LatLng position = lat;
@@ -144,6 +187,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //마커 클릭 리스너
         this.googleMap.setOnMarkerClickListener(markerClickListener);
+
+
     }
     //정보창 클릭 리스너
     GoogleMap.OnInfoWindowClickListener infoWindowClickListener = new GoogleMap.OnInfoWindowClickListener() {

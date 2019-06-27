@@ -42,10 +42,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
         android:layout_marginBottom="32dp"
         android:background="#ef9a00"
-        android:text="다음"
+        android:text="완료"
         android:textColor="#eeeeee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -54,20 +53,113 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="4"
-        android:orientation="vertical">
+        android:orientation="vertical"
 
 
-
-
-
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/layout_border"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             >
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:text="시작날짜"
+                android:textColor="#222222"
+                android:textSize="25dp" />
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#cccccc"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="35dp"
+                android:background="#ffffff"
+                android:text="    /       /  "
+                android:textColor="#50bcdf"
+                android:onClick="mOnClick"
+                android:textSize="26dp"
+                android:id="@+id/startDateBtn" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="20dp"
+                android:text="      "
+                android:textColor="#000000"
+                android:textSize="25dp" />
+
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/layout_border"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:text="종료날짜"
+                android:textColor="#222222"
+                android:textSize="25dp" />
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#cccccc"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="35dp"
+                android:background="#ffffff"
+                android:text="    /       /  "
+                android:onClick="mOnClick"
+                android:textColor="#50bcdf"
+                android:textSize="26dp"
+                android:id="@+id/endDateBtn" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="20dp"
+                android:text="      "
+                android:textColor="#000000"
+                android:textSize="25dp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

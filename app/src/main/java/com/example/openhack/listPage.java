@@ -33,18 +33,14 @@ public class listPage extends AppCompatActivity {
                 case R.id.menuitem_bottombar_left:
                     Intent intent = new Intent(listPage.this, scrapPage.class);
                     startActivity(intent);
-
                     break;
-
                 case R.id.menuitem_bottombar_search:
                     Intent intent2 = new Intent(listPage.this, registerPage.class);
                     startActivity(intent2);
-
                     break;
                 case R.id.menuitem_bottombar_right:
                     Intent intent3 = new Intent(listPage.this, listPage.class);
                     startActivity(intent3);
-
                     break;
             }
             return false;
@@ -57,10 +53,6 @@ public class listPage extends AppCompatActivity {
         setContentView(R.layout.activity_list_page);
 
         listView = (ListView) findViewById(R.id.List_view);
-
-        //데이터 초기화
-        setContentView(R.layout.activity_list_page);
-
         adapter = new list_ItemAdapter();
         listView = (ListView) findViewById(R.id.List_view);
         for(int i=0; i<10; i++) {
