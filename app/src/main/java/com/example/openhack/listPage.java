@@ -1,6 +1,7 @@
 package com.example.openhack;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,10 @@ public class listPage extends AppCompatActivity {
     private ArrayList<HashMap<String, String>> Data = new ArrayList<HashMap<String, String>>();
     private HashMap<String, String> InputData1 = new HashMap<>();
     private HashMap<String, String> InputData2 = new HashMap<>();
+
+    private list_ItemAdapter adapter;
     private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -25,17 +29,39 @@ public class listPage extends AppCompatActivity {
             listView = (ListView) findViewById(R.id.List_view);
 
             //데이터 초기화
-            InputData1.put("school", "서울대");
-            InputData1.put("name", "유혁");
-            Data.add(InputData1);
+        setContentView(R.layout.activity_list_page);
 
-            InputData2.put("school", "연세대");
-            InputData2.put("name", "유재석");
-            Data.add(InputData2);
-            SimpleAdapter simpleAdapter = new SimpleAdapter(this, Data, android.R.layout.simple_list_item_2, new String[]{"school", "name"}, new int[]{android.R.id.text1, android.R.id.text2});
-            listView.setAdapter(simpleAdapter);
+        adapter = new list_ItemAdapter();
+        listView = (ListView) findViewById(R.id.List_view);
+for(int i=0; i<5; i++) {
+    TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
+    list_Item dto = new list_Item();
+    dto.setProfileImage(arrResId.getResourceId(0, 0));
+    dto.setStoreName("test");
+    dto.setPayPerHour("test11");
+    dto.setWriteTime("test123");
+    adapter.addItem(dto);
+}
+        listView.setAdapter(adapter);
         }
+/*
+    private void setData() {
+        TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
+        String[] titles = getResources().getStringArray(R.array.title);
+        String[] payPerHours = getResources().getStringArray(R.array.content);
+        String[] writeTime = getResources().getStringArray(R.array.content);
 
 
+        for (int i = 0; i < arrResId.length(); i++) {
+            list_Item dto = new list_Item();
+            dto.setProfileImage(arrResId.getResourceId(i, 0));
+            dto.setStoreName(titles[i]);
+            dto.setPayPerHour(payPerHours[i]);
+            dto.getWriteTime(writeTime);
+
+            adapter.addItem(dto);
+        }
+    }
+*/
     }
 
