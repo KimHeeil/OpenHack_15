@@ -27,7 +27,6 @@ public class scrapPage extends AppCompatActivity {
                 case R.id.menuitem_bottombar_left:
                     Intent intent = new Intent(scrapPage.this, scrapPage.class);
                     startActivity(intent);
-
                     break;
 
                 case R.id.menuitem_bottombar_search:

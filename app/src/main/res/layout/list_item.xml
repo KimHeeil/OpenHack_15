@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal" android:layout_width="345dp"
     android:layout_height="match_parent"
-
+    android:descendantFocusability="blocksDescendants"
     android:background="@drawable/layout_border">
 
     <LinearLayout

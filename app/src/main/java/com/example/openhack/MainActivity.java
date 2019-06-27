@@ -99,16 +99,21 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         listView.setAdapter(adapter);
 
+
+/////////////////////////////////이부분은 리스뷰 실행부분입니다.///-Jaemin/
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this ,"test",Toast.LENGTH_LONG).show();
+
                 Intent intent = new Intent(MainActivity.this,jobDetailPage.class);
                 startActivity(intent);
+
+
             }
         });
-/////////////////////////////////이부분은 리스뷰 실행부분입니다.///-Jaemin/
-
     }
+
 
     public void btnClick(View view)
     {
