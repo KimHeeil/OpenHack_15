@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="theme, icon, label">
-        <activity android:name=".registerPage"></activity>
+        <activity android:name=".scrapPage"></activity>
+        <activity android:name=".registerPage" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
