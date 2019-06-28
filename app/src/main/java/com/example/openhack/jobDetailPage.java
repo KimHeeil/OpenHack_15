@@ -28,7 +28,7 @@ public class jobDetailPage extends AppCompatActivity {
                     startActivity(intent2);
                     break;
                 case R.id.menuitem_bottombar_right:
-                    Intent intent3 = new Intent(jobDetailPage.this, listPage.class);
+                    Intent intent3 = new Intent(jobDetailPage.this, registerPage.class);
                     startActivity(intent3);
                     break;
             }
@@ -43,7 +43,5 @@ public class jobDetailPage extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-
     }
 }

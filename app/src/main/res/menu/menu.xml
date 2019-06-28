@@ -7,5 +7,6 @@
         android:textSize="20sp"
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView"
+
         />
 </menu>

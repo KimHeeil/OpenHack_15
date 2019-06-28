@@ -106,12 +106,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this ,"test",Toast.LENGTH_LONG).show();
-
                 Intent intent = new Intent(MainActivity.this,jobDetailPage.class);
                 startActivity(intent);
-
-
             }
         });
     }

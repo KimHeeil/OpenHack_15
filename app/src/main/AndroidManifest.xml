@@ -15,9 +15,11 @@
         tools:replace="theme, icon, label">
         <activity android:name=".scrapPage"></activity>
         <activity android:name=".jobDetailPage" />
-        <activity android:name=".registerPage3" />
+        <activity android:name=".registerPage3"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".registerPage2" />
-        <activity android:name=".registerPage" />
+        <activity android:name=".registerPage"
+            android:windowSoftInputMode="adjustPan"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
