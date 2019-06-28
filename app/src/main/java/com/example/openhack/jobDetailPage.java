@@ -19,7 +19,7 @@ public class jobDetailPage extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menuitem_bottombar_left:
-                    Intent intent = new Intent(jobDetailPage.this, scrapPage.class);
+                    Intent intent = new Intent(jobDetailPage.this, listPage.class);
                     startActivity(intent);
                     break;
 

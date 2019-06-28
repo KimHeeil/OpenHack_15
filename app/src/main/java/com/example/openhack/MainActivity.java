@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menuitem_bottombar_left:
-                    Intent intent = new Intent(MainActivity.this, scrapPage.class);
+                    Intent intent = new Intent(MainActivity.this, listPage.class);
                     startActivity(intent);
                     break;
 
@@ -213,6 +213,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             return false;
         }
     };
+
 
 
     }

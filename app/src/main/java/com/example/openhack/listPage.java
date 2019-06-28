@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,7 +32,7 @@ public class listPage extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menuitem_bottombar_left:
-                    Intent intent = new Intent(listPage.this, scrapPage.class);
+                    Intent intent = new Intent(listPage.this, listPage.class);
                     startActivity(intent);
                     break;
                 case R.id.menuitem_bottombar_search:
@@ -52,6 +53,28 @@ public class listPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_page);
 
+
+        TabHost tabHost1 = (TabHost) findViewById(R.id.tabHost2);
+        tabHost1.setup();
+
+        TabHost.TabSpec ts1 = tabHost1.newTabSpec("Tab Spec 1");
+        ts1.setContent(R.id.content1);
+        ts1.setIndicator("스크랩");
+        tabHost1.addTab(ts1);
+
+        TabHost.TabSpec ts2 = tabHost1.newTabSpec("Tab Spec 2") ;
+        ts2.setContent(R.id.content2) ;
+        ts2.setIndicator("작성한 게시글") ;
+        tabHost1.addTab(ts2) ;
+        //스크랩데이터
+        String[] title = getResources().getStringArray(R.array.title);
+
+        String[] date = getResources().getStringArray(R.array.date);
+
+        String[] money = getResources().getStringArray(R.array.money);
+
+
+
         listView = (ListView) findViewById(R.id.List_view);
         adapter = new list_ItemAdapter();
         listView = (ListView) findViewById(R.id.List_view);
@@ -59,12 +82,27 @@ public class listPage extends AppCompatActivity {
             TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
             list_Item dto = new list_Item();
             dto.setProfileImage(arrResId.getResourceId(0, 0));
-            dto.setStoreName("test");
-            dto.setPayPerHour("test11");
-            dto.setWriteTime("test123");
+            dto.setStoreName(title[i]);
+            dto.setPayPerHour(date[i]);
+            dto.setWriteTime(money[i]);
             adapter.addItem(dto);
          }
             listView.setAdapter(adapter);
+
+        listView = (ListView) findViewById(R.id.List_view1);
+        adapter = new list_ItemAdapter();
+        listView = (ListView) findViewById(R.id.List_view1);
+
+            TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
+            list_Item dto = new list_Item();
+            dto.setProfileImage(arrResId.getResourceId(0, 0));
+            dto.setStoreName("베스킨라빈스");
+            dto.setPayPerHour("6/29~7/2 09:00~18:00");
+            dto.setWriteTime("시급 10.000원");
+            adapter.addItem(dto);
+
+        listView.setAdapter(adapter);
+
 
 
     }
