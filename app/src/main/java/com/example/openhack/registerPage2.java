@@ -50,7 +50,11 @@ public class registerPage2 extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(getApplicationContext(),"등록되었습니다.",Toast.LENGTH_SHORT).show();
+
+                    Bundle b = new Bundle();
+                    b.putInt("regist", 1);
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    intent.putExtras(b);
                     startActivity(intent);
                 }
             });

@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private list_ItemAdapter adapter; //리스트 뷰 관련 변수
     private ListView listView; //리스트 뷰 관련 변수
+
 //아래쪽에 선택하면 연결해주는 부분
 
     GoogleMap googleMap;
@@ -59,20 +60,31 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     startActivity(intent2);
                     break;
                 case R.id.menuitem_bottombar_right:
+
                     Intent intent3 = new Intent(MainActivity.this, registerPage.class);
-                    startActivity(intent3);
+                    intent3.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                   MainActivity.this.startActivity(intent3);
+
                     break;
             }
             return false;
         }
     };
-
+    int regNumber=0;
 
     ///////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        try{
+            Bundle b = getIntent().getExtras();
+            regNumber = b.getInt("regist");
+        } catch(Exception ex){
+            regNumber = -1; //Or some error status //
+        }
 
         TabHost tabHost1 = (TabHost) findViewById(R.id.tabHost1);
         tabHost1.setup();
@@ -107,6 +119,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         list_Item dto4 = new list_Item();
         list_Item dto5 = new list_Item();
 //coo,se,tea,seving
+
+        if(regNumber==1)
+        {
+            dto5.setProfileImage(arrResId.getResourceId(2, 0));
+            dto5.setStoreName("(급구)밥먹으러갈사람");
+            dto5.setPayPerHour("6/28 ~ 6/28");
+            dto5.setWriteTime("시급 30,000원");
+            adapter.addItem(dto5);
+        }
+
         dto.setProfileImage(arrResId.getResourceId(0, 0));
         dto.setStoreName("파리바게트 익산중앙점(제빵)");
         dto.setPayPerHour("6/29 ~ 7/2");
@@ -131,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         dto4.setPayPerHour("6/28 ~ 6/28");
         dto4.setWriteTime("시급 30,000원");
         adapter.addItem(dto4);
+
 
 
         listView.setAdapter(adapter);
@@ -166,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng SEOUL1 = new LatLng(35.950400, 126.976491);
         LatLng SEOUL2 = new LatLng(35.951200, 126.975091);
         LatLng SEOUL3 = new LatLng(35.949600, 126.974291);
+        LatLng SEOUL4 = new LatLng(35.946200,126.974293);
 
         this.googleMap = googleMap;
         this.googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -176,6 +200,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         onAddMarker(SEOUL1,"베스킨 라빈스","3일 급구");
         onAddMarker(SEOUL2,"사무실 이전", "3시간 구합니다.");
         onAddMarker(SEOUL3,"피시방 대타", "28일 하루 야간 대타구해요");
+
+
+        if(regNumber==1)
+        {
+            onAddMarker(SEOUL4,"밥같이 먹기","한끼 같이 먹어주실분 구합니다");
+        }
         this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
         this.googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
     }
