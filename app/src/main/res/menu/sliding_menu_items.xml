@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/account"
+            android:icon="@drawable/ic_restaurant_black_24dp"
+            android:title="지원목록"
+            />
+        <item
+            android:id="@+id/star"
+            android:icon="@drawable/ic_restaurant_black_24dp"
+            android:title="구직목록"
+            />
+        <item
+            android:id="@+id/cart"
+            android:icon="@drawable/ic_restaurant_black_24dp"
+            android:title="내정보"
+            />
+    </group>
+
+</menu>

@@ -4,39 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button
-        android:id="@+id/statebutton1"
-        android:layout_width="33dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"
-        android:text="1"
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#fff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="#00ff0000"/>
+        app:menu="@menu/menu"
+        tools:ignore="MissingConstraints">
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <View
+
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#ef9a00"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navigationView2" />
 
     <Button
-        android:id="@+id/statebutton2"
-        android:layout_width="34dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="4dp"
-        android:textColor="#ef9a00"
+        android:id="@+id/statebutton"
+        android:layout_width="22dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="#00ff0000"
+        android:text="1"
+
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navigationView2" />
+
+    <Button
+        android:id="@+id/statebutton5"
+        android:layout_width="22dp"
+        android:layout_height="27dp"
+        android:background="#00ff0000"
         android:text="2"
-        android:background="#00ff0000"
-        app:layout_constraintStart_toEndOf="@+id/statebutton1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/statebutton3"
-        android:layout_width="34dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="4dp"
-        android:text="3"
-        android:background="#00ff0000"
-        app:layout_constraintStart_toEndOf="@+id/statebutton2"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="12sp"
+        android:textColor="#ef9a00"
+        app:layout_constraintStart_toEndOf="@+id/statebutton"
+        app:layout_constraintTop_toTopOf="@+id/statebutton" />
 
     <Button
         android:id="@+id/nextButton"
@@ -56,16 +68,19 @@
         android:orientation="vertical"
 
 
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="64dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="110dp"
-            android:background="@drawable/layout_border"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="110dp"
             android:layout_marginRight="20dp"
-            >
+            android:background="@drawable/layout_border"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -76,26 +91,26 @@
                 android:text="시작날짜"
                 android:textColor="#222222"
                 android:textSize="25dp" />
-            <View
 
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#cccccc"/>
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#cccccc" />
 
             <Button
+                android:id="@+id/startDateBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="35dp"
+                android:layout_marginRight="20dp"
                 android:background="#ffffff"
+                android:onClick="mOnClick"
                 android:text="    /       /  "
                 android:textColor="#50bcdf"
-                android:onClick="mOnClick"
-                android:textSize="26dp"
-                android:id="@+id/startDateBtn" />
+                android:textSize="26dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -108,15 +123,15 @@
                 android:textSize="25dp" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/layout_border"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
             android:layout_marginRight="20dp"
-            >
+            android:background="@drawable/layout_border"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -127,26 +142,27 @@
                 android:text="종료날짜"
                 android:textColor="#222222"
                 android:textSize="25dp" />
+
             <View
 
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="#cccccc"/>
+                android:background="#cccccc" />
 
             <Button
+                android:id="@+id/endDateBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="35dp"
+                android:layout_marginRight="20dp"
                 android:background="#ffffff"
-                android:text="    /       /  "
                 android:onClick="mOnClick"
+                android:text="    /       /  "
                 android:textColor="#50bcdf"
-                android:textSize="26dp"
-                android:id="@+id/endDateBtn" />
+                android:textSize="26dp" />
 
             <TextView
                 android:layout_width="match_parent"

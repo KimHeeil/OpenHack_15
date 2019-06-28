@@ -3,7 +3,9 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -23,6 +25,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     break;
 
                 case R.id.menuitem_bottombar_search:
-                    Intent intent2 = new Intent(MainActivity.this, jobDetailPage.class);
+                    Intent intent2 = new Intent(MainActivity.this, slidingWindowTest.class);
                     startActivity(intent2);
                     break;
                 case R.id.menuitem_bottombar_right:
@@ -100,8 +103,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             adapter.addItem(dto);
         }
         listView.setAdapter(adapter);
+///////액션바 바꾸기
 
 
+        출처: https://eskeptor.tistory.com/61 [Hello World]
 /////////////////////////////////이부분은 리스뷰 실행부분입니다.///-Jaemin/
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -110,7 +115,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startActivity(intent);
             }
         });
+
+        ///////////슬라이드 이벤트 부분/////////
+
+
+////////////슬라이드 이벤트 부분입니당.
     }
+///여기까지 oncreate
 
 
     public void btnClick(View view)

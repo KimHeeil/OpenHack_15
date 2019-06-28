@@ -7,6 +7,11 @@
         android:textSize="20sp"
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView"
+        />
 
+    <item android:id="@+id/action_menu"
+        android:title="메뉴"
+        app:showAsAction="always"
+        
         />
 </menu>
