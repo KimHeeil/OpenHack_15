@@ -2,8 +2,10 @@
 
 <resources>
     <integer-array name="resId">
-        <item>@drawable/icontest</item>
-
+        <item>@drawable/ic_cooking</item>
+        <item>@drawable/ic_service</item>
+        <item>@drawable/ic_teaching</item>
+        <item>@drawable/ic_serving</item>
     </integer-array>
 
 </resources>

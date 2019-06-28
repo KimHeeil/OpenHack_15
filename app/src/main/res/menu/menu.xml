@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
-    <item android:id="@+id/action_search"
-        android:title="단기몬"
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="102"
         android:textSize="20sp"
-        app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView"
-        />
+        app:showAsAction="always|collapseActionView" />
 
-    <item android:id="@+id/action_menu"
-        android:title="메뉴"
-        app:showAsAction="always"
-        
-        />
+
 </menu>

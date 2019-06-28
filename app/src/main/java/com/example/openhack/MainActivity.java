@@ -1,9 +1,14 @@
 package com.example.openhack;
 import android.app.FragmentManager;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.GestureDetector;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     break;
 
                 case R.id.menuitem_bottombar_search:
-                    Intent intent2 = new Intent(MainActivity.this, slidingWindowTest.class);
+                    Intent intent2 = new Intent(MainActivity.this, actionbarTest.class);
                     startActivity(intent2);
                     break;
                 case R.id.menuitem_bottombar_right:
@@ -61,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             return false;
         }
     };
+
+
     ///////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,20 +100,42 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         listView = (ListView) findViewById(R.id.List_view);
 
 
-        for(int i=0; i<10; i++) {
-            TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
-            list_Item dto = new list_Item();
-            dto.setProfileImage(arrResId.getResourceId(0, 0));
-            dto.setStoreName("test");
-            dto.setPayPerHour("test11");
-            dto.setWriteTime("test123");
-            adapter.addItem(dto);
-        }
+        TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
+        list_Item dto = new list_Item();
+        list_Item dto2 = new list_Item();
+        list_Item dto3 = new list_Item();
+        list_Item dto4 = new list_Item();
+        list_Item dto5 = new list_Item();
+//coo,se,tea,seving
+        dto.setProfileImage(arrResId.getResourceId(0, 0));
+        dto.setStoreName("파리바게트 익산중앙점(제빵)");
+        dto.setPayPerHour("6/29 ~ 7/2");
+        dto.setWriteTime("시급 8,800원");
+        adapter.addItem(dto);
+
+
+        dto2.setProfileImage(arrResId.getResourceId(3, 0));
+        dto2.setStoreName("파리바게트 익산중앙점(홀)");
+        dto2.setPayPerHour("6/29 ~ 7/2");
+        dto2.setWriteTime("시급 8,800원");
+        adapter.addItem(dto2);
+
+        dto3.setProfileImage(arrResId.getResourceId(1, 0));
+        dto3.setStoreName("단팥빵 제작");
+        dto3.setPayPerHour("6/27 ~ 7/30");
+        dto3.setWriteTime("시급 8,350원");
+        adapter.addItem(dto3);
+
+        dto4.setProfileImage(arrResId.getResourceId(2, 0));
+        dto4.setStoreName("(급구)해커톤 안드로이드 개발자");
+        dto4.setPayPerHour("6/28 ~ 6/28");
+        dto4.setWriteTime("시급 30,000원");
+        adapter.addItem(dto4);
+
+
         listView.setAdapter(adapter);
 ///////액션바 바꾸기
 
-
-        출처: https://eskeptor.tistory.com/61 [Hello World]
 /////////////////////////////////이부분은 리스뷰 실행부분입니다.///-Jaemin/
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -137,35 +166,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng SEOUL1 = new LatLng(35.950400, 126.976491);
         LatLng SEOUL2 = new LatLng(35.951200, 126.975091);
         LatLng SEOUL3 = new LatLng(35.949600, 126.974291);
-/*
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(SEOUL);
-        markerOptions.title("빠리바게트");
-        markerOptions.snippet("1일 단기알바");
-        map.addMarker(markerOptions);
 
-        MarkerOptions markerOptions1 = new MarkerOptions();
-        markerOptions1.position(SEOUL1);
-        markerOptions1.title("베스킨 라빈스");
-        markerOptions1.snippet("3일 급구");
-        map.addMarker(markerOptions1);
-
-        MarkerOptions markerOptions2 = new MarkerOptions();
-        markerOptions2.position(SEOUL2);
-        markerOptions2.title("사무실 이전");
-        markerOptions2.snippet("3시간 구합니다.");
-        map.addMarker(markerOptions2);
-
-        MarkerOptions markerOptions3 = new MarkerOptions();
-        markerOptions3.position(SEOUL3);
-        markerOptions3.title("피시방 대타");
-        markerOptions3.snippet("28일 하루 야간 대타구해요.");
-        map.addMarker(markerOptions3);
-
-
-
-=======
-*/
         this.googleMap = googleMap;
         this.googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
