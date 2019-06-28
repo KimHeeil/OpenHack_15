@@ -1,4 +1,5 @@
 package com.example.openhack;
+
 import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.content.Context;
@@ -30,18 +31,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private TextView mTextMessage;//bottom navigation 관련 변수
 
+
     private list_ItemAdapter adapter; //리스트 뷰 관련 변수
     private ListView listView; //리스트 뷰 관련 변수
 
 //아래쪽에 선택하면 연결해주는 부분
-
     GoogleMap googleMap;
     //bottom navigation 연결 부분입니다.///////////////////
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menuitem_bottombar_left:
-                    Intent intent = new Intent(MainActivity.this, scrapPage.class);
+                    Intent intent = new Intent(MainActivity.this, listPage.class);
                     startActivity(intent);
                     break;
 
@@ -60,11 +59,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     startActivity(intent2);
                     break;
                 case R.id.menuitem_bottombar_right:
-
                     Intent intent3 = new Intent(MainActivity.this, registerPage.class);
                     intent3.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                    MainActivity.this.startActivity(intent3);
-
                     break;
             }
             return false;
@@ -77,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         try{
             Bundle b = getIntent().getExtras();
@@ -110,16 +106,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 /////////////////////////////////이부분은 리스뷰 실행부분입니다.///-Jaemin/
         adapter = new list_ItemAdapter();
         listView = (ListView) findViewById(R.id.List_view);
+        String[] title = getResources().getStringArray(R.array.title);
+
+        String[] date = getResources().getStringArray(R.array.date);
+
+        String[] money = getResources().getStringArray(R.array.money);
 
 
-        TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
         list_Item dto = new list_Item();
         list_Item dto2 = new list_Item();
         list_Item dto3 = new list_Item();
         list_Item dto4 = new list_Item();
         list_Item dto5 = new list_Item();
 //coo,se,tea,seving
-
+        TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
         if(regNumber==1)
         {
             dto5.setProfileImage(arrResId.getResourceId(2, 0));
@@ -154,11 +154,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         dto4.setWriteTime("시급 30,000원");
         adapter.addItem(dto4);
 
-
-
         listView.setAdapter(adapter);
 ///////액션바 바꾸기
-
 /////////////////////////////////이부분은 리스뷰 실행부분입니다.///-Jaemin/
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -167,20 +164,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startActivity(intent);
             }
         });
-
         ///////////슬라이드 이벤트 부분/////////
-
-
 ////////////슬라이드 이벤트 부분입니당.
     }
 ///여기까지 oncreate
-
 
     public void btnClick(View view)
     {
         Toast.makeText(getApplicationContext(),"스크랩 되었습니다.",Toast.LENGTH_SHORT).show();
     }
-
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -206,6 +198,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         {
             onAddMarker(SEOUL4,"밥같이 먹기","한끼 같이 먹어주실분 구합니다");
         }
+
         this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
         this.googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
     }
@@ -226,6 +219,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //마커 클릭 리스너
         this.googleMap.setOnMarkerClickListener(markerClickListener);
+
 
     }
     //정보창 클릭 리스너
@@ -249,6 +243,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             return false;
         }
     };
+
 
 
     }

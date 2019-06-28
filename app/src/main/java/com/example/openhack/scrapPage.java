@@ -1,4 +1,5 @@
 package com.example.openhack;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
@@ -6,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
+
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.view.MenuItem;
@@ -14,8 +16,14 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class scrapPage extends AppCompatActivity {
@@ -31,6 +39,9 @@ public class scrapPage extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menuitem_bottombar_left:
+
+                    Intent intent = new Intent(scrapPage.this, listPage.class);
+                    startActivity(intent);
                     break;
                 case R.id.menuitem_bottombar_search:
                     Intent intent2 = new Intent(scrapPage.this, jobDetailPage.class);

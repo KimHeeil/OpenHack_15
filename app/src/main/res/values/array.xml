@@ -8,4 +8,46 @@
         <item>@drawable/ic_serving</item>
     </integer-array>
 
+    <string-array name="title">
+        <item>파리바게트 익산영등점</item>
+        <item>베스킨</item>
+        <item>한신포차</item>
+        <item>봉구스 밥버거</item>
+        <item>후카 라운지</item>
+        <item>뚜레주르</item>
+        <item>Hyundai</item>
+        <item>LG</item>
+        <item>SK</item>
+        <item>KIA</item>
+    </string-array>
+
+    <string-array name="date">
+        <item>6/28~7/56</item>
+        <item>6/22~7/12</item>
+        <item>6/13~7/13</item>
+        <item>6/04~7/24</item>
+        <item>6/03~7/31</item>
+        <item>6/05~7/21</item>
+        <item>6/28~7/22</item>
+        <item>6/28~7/11</item>
+        <item>6/28~7/56</item>
+        <item>6/28~7/56</item>
+
+
+    </string-array>
+    <string-array name="money">
+        <item>시급 8,800원</item>
+        <item>시급 8,800원</item>
+
+        <item>시급 8,800원</item>
+
+        <item>시급 8,800원</item>
+
+        <item>시급 8,800원</item>
+        <item>시급 8,800원</item>
+        <item>시급 8,800원</item>
+        <item>시급 8,800원</item>
+        <item>시급 8,800원</item>
+        <item>시급 8,800원</item>
+    </string-array>
 </resources>

@@ -16,12 +16,13 @@
         <activity android:name=".actionbarTest"></activity>
         <activity android:name=".menu_custom_actionbar" />
         <activity android:name=".slidingWindowTest" />
-        <activity android:name=".scrapPage" />
+
+        <activity android:name=".Spec"></activity>
         <activity android:name=".jobDetailPage" />
-        <activity
-            android:name=".registerPage3"
-            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".registerPage3" />
         <activity android:name=".registerPage2" />
+
+        <activity android:name=".scrapPage" />
         <activity
             android:name=".registerPage"
             android:windowSoftInputMode="adjustPan" />
